@@ -1,0 +1,172 @@
+:root{
+  --light-green: #7fb865;
+  --dark-green: #426a5a;
+  --beige: #f2c57c;
+  --red: #ef6f6c;
+  --main-color-box: #f2c57c;
+  --second-color-head-text: #426a5a;
+  --main-text: "Roboto";
+  --secondary-text: "Raleway";
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  line-height: 1.5;
+  background-color: var(--light-green);
+}
+
+header {
+  background-color: var(--beige);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+h1 {
+  font-family: var(--main-text);
+  color: var(--dark-green);
+  font-size: 1rem;
+  margin-left: 2rem;
+}
+
+.logo {
+  width: 10%;
+  margin-right: 2rem;
+}
+
+main{
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+main h2{
+  width: 85%;
+  border-radius: 10px;
+  background-color: #f2c57c;
+  text-align: center;
+  font-size: 1.5rem;
+  grid-row: 1 / 2;
+  margin-left: 2rem;
+  color: var(--dark-green);
+}
+
+.badge{
+  border-radius: 50%;
+  width: 15%;
+  height: 10%;
+  background-color: #f2c57c;
+  margin: 1rem;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  opacity: 0.7;
+  top: 30%;
+  left: 10%;
+}
+
+.container {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding-bottom: 5rem;
+  z-index: 1;
+}
+
+.container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 85%;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  grid-row: 2 / 3;
+  position: relative;
+  z-index: 0;
+  top: -12px;
+  }
+
+.description {
+  width: 75%;
+  height: auto;
+  text-align: center;
+  margin-left: 3rem;
+  background: 2px solid #000;
+  border-radius: 8px;
+  grid-row: 3 / 4;
+  position: absolute;
+  bottom: 20%;
+  background-color: var(--beige);
+  color: var(--dark-green);
+  z-index: 1;
+}
+  
+nav {
+  position: fixed;
+  bottom: -10px;
+  width: 100%;
+  background-color: var(--beige);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.nav-item {
+  color: #83818c;
+  font-family: var(--main-text);
+  padding: 1rem;
+  margin: 0 6px;
+  position: relative;
+}
+
+.nav-item:before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  background-color: #dfe2ea;
+  height: 5px;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  left: 0;
+  transition: .3s;
+}
+
+.nav-item:not(.is-active):hover:before {
+  bottom: 0;
+}
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  transition: .4s;
+  border-radius: 8px 8px 0 0;
+}
+
+footer>nav>a {
+  text-decoration: none;
+  color: black;
+}
+
+footer>nav>a:hover {
+  text-decoration: none;
+  color: black;
+  transform: scale(130%);
+  cursor: pointer;
+}

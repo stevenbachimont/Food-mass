@@ -1,66 +1,97 @@
+
+
+/*
+const pins = document.querySelectorAll('.pin1, .pin2, .pin3 .pin4, .pin5, .pin6, .pin7, .pin8')
+
+pins.forEach(pin => {
+    pin.addEventListener('click', () => {
+        if (pin.style.display !== 'none') {
+            pin.style.display = 'none';
+        } else {
+            pin.style.display ='block';
+        }
+
+    });
+});
+*/
+
+
+let pins = document.querySelectorAll('.pin1, .pin2, .pin3 .pin4, .pin5, .pin6, .pin7, .pin8');
+
+
+
+
 let restaurants = [
     {
-        name: "Restaurant1",
+        name: "LU",
         id: "r1",
+        pin: "pin1",
         expensive: false,
-        far: false,
-        meat: false,
+        far: true,
+        meat: true,
     },
     {
-        name: "Restaurant2",
+        name: "Honoré",
         id: "r2",
-        expensive: false,
+        pin: "pin2",
+        expensive: true,
         far: false,
         meat: true,
     },
     {
-        name: "Restaurant3",
+        name: "Chez Canelle",
         id: "r3",
-        expensive: false,
-        far: true,
+        pin: "pin3",
+        expensive: true,
+        far: false,
         meat: false,
     },
     {
-        name: "Restaurant4",
+        name: "La Mangouste",
         id: "r4",
+        pin: "pin4",
+        expensive: true,
+        far: true,
+        meat: false,
+    },
+    {
+        name: "Ichizen",
+        id: "r5",
+        pin: "pin5",
         expensive: false,
         far: true,
-        meat: true,
-    },
-    {
-        name: "Restaurant5",
-        id: "r5",
-        expensive: true,
-        far: false,
         meat: false,
     },
     {
-        name: "Restaurant6",
+        name: "Le Lion et l'agneau",
         id: "r6",
+        pin: "pin6",
         expensive: true,
-        far: false,
+        far: true,
         meat: true,
     },
     {
-        name: "Restaurant7",
+        name: "Le Square",
         id: "r7",
-        expensive: true,
-        far: true,
+        pin: "pin7",
+        expensive: false,
+        far: false,
         meat: false,
     },
     {
-        name: "Restaurant8",
+        name: "La Cantine Fermière",
         id: "r8",
-        expensive: true,
-        far: true,
+        pin: "pin8",
+        expensive: false,
+        far: false,
         meat: true,
     },
 ];
 
 let questions = [
-    { criteria: "expensive", displayText: "Do you have a big budget?" },
-    { criteria: "far", displayText: "Do you feel like walking?" },
-    { criteria: "meat", displayText: "Do you eat meat?" },
+    { criteria: "expensive", displayText: "à emporter ?" },
+    { criteria: "far", displayText: "à plus de 2mn ?" },
+    { criteria: "meat", displayText: "végétarien ?" },
 ];
 
 
@@ -86,77 +117,82 @@ function displayResult() {
             restaurant.far === responses.far &&
             restaurant.meat === responses.meat);
     });
-
-
-
+   /* window.location.replace(`/${matchingRestaurants[0].id}.html`)*/
 
     console.log("Matching Restaurants:", matchingRestaurants);
     for (let i = 0; i < matchingRestaurants.length; i++) {
         document.getElementById(matchingRestaurants[i].id).style.display = "block";
+
     }
 }
 
 
 function handleUserInput(userInput) {
     switch (currentIndex) {
-        case 0:
+        case 0://cher
             if (userInput === false) {
-                document.querySelectorAll('.pin5, .pin6, .pin7, .pin8').forEach(pin => {
+                document.querySelectorAll('.pin6, .pin2,  .pin3, .pin4').forEach(pin => {
                     if (pin.style.display !== 'none') {
                         pin.style.display = 'none';
                     }
                 });
             }
             if (userInput === true) {
-                document.querySelectorAll('.pin1, .pin2, .pin3, .pin4').forEach(pin => {
+                document.querySelectorAll('.pin1, .pin5, .pin7, .pin8').forEach(pin => {
                     if (pin.style.display !== 'none') {
                         pin.style.display = 'none';
                     }
                 });
             }
             break;
-        case 1:
+        case 1://loin
             if (userInput === false) {
-                document.querySelectorAll('.pin7, .pin3, .pin4').forEach(pin => {
+                document.querySelectorAll(' .pin4, .pin5, .pin6, .pin1').forEach(pin => {
                     if (pin.style.display !== 'none') {
                         pin.style.display = 'none';
                     }
                 });
             }
             if (userInput === true) {
-                document.querySelectorAll('.pin2, .pin8').forEach(pin => {
+                document.querySelectorAll('.pin3, .pin2, .pin8, .pin7').forEach(pin => {
                     if (pin.style.display !== 'none') {
                         pin.style.display = 'none';
                     }
                 });
             }
             break;
-        case 2:
+        case 2: // Viande
             if (userInput === false) {
-                document.querySelectorAll('.pin2, .pin6').forEach(pin => {
+                document.querySelectorAll('.pin6, .pin2, .pin1, .pin8').forEach(pin => {
                     if (pin.style.display !== 'none') {
                         pin.style.display = 'none';
                     }
+                });
+                pins.forEach(pin => {
+                    pin.addEventListener('click', () => {
+                        let url = pin.parentElement.querySelector('a').getAttribute('href');
+                        window.open(url, '_blank');
+                    });
                 });
             }
             if (userInput === true) {
-                document.querySelectorAll('.pin3, .pin7').forEach(pin => {
+                document.querySelectorAll('.pin4, .pin3, .pin7, .pin5').forEach(pin => {
                     if (pin.style.display !== 'none') {
                         pin.style.display = 'none';
                     }
                 });
-            }
-            break;
-        case 3:
-            if (userInput === false) {
-                document.querySelectorAll('.pin1, .pin6').forEach(pin => {
-                    if (pin.style.display !== 'none') {
-                        pin.style.display = 'block';
-                    }
+                pins.forEach(pin => {
+                    pin.addEventListener('click', () => {
+                        let url = pin.parentElement.querySelector('a').getAttribute('href');
+                        window.open(url, '_blank');
+                    });
                 });
             }
             break;
     }
+
+
+
 
     responses[questions[currentIndex].criteria] = userInput;
     console.log("Current Responses:", responses);
@@ -178,7 +214,7 @@ noButton.addEventListener("click", () => {
 
 
 displayQuestion();
-displayMap();
+
 
 
 
